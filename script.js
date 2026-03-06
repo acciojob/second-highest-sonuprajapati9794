@@ -1,16 +1,23 @@
 function secondHighest(arr) {
 
+    // If array has less than 2 elements
     if (arr.length < 2) {
         return -Infinity;
     }
 
-    let unique = [...new Set(arr)];  // duplicate remove
+    // Remove duplicate values
+    let uniqueArr = [...new Set(arr)];
 
-    if (unique.length < 2) {
+    // If all elements are same
+    if (uniqueArr.length < 2) {
         return -Infinity;
     }
 
-    unique.sort((a, b) => b - a);  // descending order
+    // Sort array in descending order
+    uniqueArr.sort(function(a, b) {
+        return b - a;
+    });
 
-    return unique[1]; // second highest
+    // Return second highest element
+    return uniqueArr[1];
 }
